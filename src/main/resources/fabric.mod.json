@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "libgamerule",
+  "version": "${version}",
+  "name": "LibGamerule",
+  "description": "A library for creating and using gamerules",
+  "authors": [
+    "Martmists"
+  ],
+  "contact": {
+    "sources": "https://dilaton.martmists.com/martmists/libgamerule"
+  },
+  "license": "MIT",
+  "icon": "assets/lgr/icon.png",
+  "entrypoints": {
+    "libcd": [
+      "com.martmists.libgamerule.compat.libcd.GameruleTweakerEP"
+    ]
+  },
+  "mixins": [
+    "lgr.mixins.json"
+  ],
+  "custom": {
+    "modmenu:api": true
+  },
+  "depends": {
+    "fabricloader": ">=0.4.0"
+  },
+  "suggests": {
+    "libcd": "*"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.martmists.libgamerule.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "RuleTypeAccessor",
+    "GameRulesAccessor",
+    "LevelPropertiesMixin",
+    "GameRulesMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
