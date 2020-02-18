@@ -13,8 +13,10 @@ public class GameruleTweaker {
             GameRules.RuleType<?> t;
             switch (type) {
                 case "int":
+                case "integer":
                     t = IntRule.create((Integer) defaultValue);
                     break;
+                case "bool":
                 case "boolean":
                     t = BooleanRule.create((Boolean) defaultValue);
                     break;
@@ -31,7 +33,7 @@ public class GameruleTweaker {
             }
             Gamerule.register(name, t);
         } catch (Exception e) {
-            System.out.println("Error parsing cauldron recipe - " + e.getMessage());
+            System.out.println("Error parsing gamerule - " + e.getMessage());
         }
     }
 }
