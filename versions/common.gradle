@@ -1,0 +1,58 @@
+apply plugin: 'fabric-loom'
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+archivesBaseName = "${project.mod_name}-${project.mod_version}-${project.minecraft_version}"
+
+dependencies {
+    // Base dependencies
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modCompileOnly "io.github.cottonmc:LibCD:${project.libcd_version}"
+}
+
+repositories {
+    maven {
+        url "http://server.bbkr.space:8081/artifactory/libs-release/"
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include "fabric.mod.json"
+        expand "version": project.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude "fabric.mod.json"
+    }
+}
+
+setBuildDir("../../build")
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ["../../src/main/java"]
+        }
+        resources {
+            srcDirs = ["../../src/main/resources"]
+        }
+    }
+}
+
+jar {
+    from "LICENSE"
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    archiveClassifier.set("sources")
+    from sourceSets.main.allSource
+}
+
+jar.dependsOn sourcesJar
+build.dependsOn jar

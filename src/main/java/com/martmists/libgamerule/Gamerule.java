@@ -1,5 +1,6 @@
 package com.martmists.libgamerule;
 
+import blue.endless.jankson.annotation.Nullable;
 import com.martmists.libgamerule.mixin.GameRulesAccessor;
 import com.martmists.libgamerule.entities.ValueGetter;
 import com.martmists.libgamerule.mixin.RuleTypeAccessor;
@@ -23,12 +24,16 @@ public class Gamerule {
         return key;
     }
 
+    @Nullable
     public static <T extends GameRules.Rule<T> & ValueGetter<V>, V> V get(GameRules.RuleKey<T> key){
         MinecraftServer server;
         if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT){
             server = ((MinecraftClient)FabricLoader.getInstance().getGameInstance()).getServer();
         } else {
             server = (MinecraftServer)FabricLoader.getInstance().getGameInstance();
+        }
+        if (server == null){
+            return null;
         }
         return server.getGameRules().get(key).get();
     }
