@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class EnumArgumentType<E extends Enum<E>> implements ArgumentType<E> {
     Class<E> clazz;
 
-    public EnumArgumentType(Class<E> enumClass){
+    public EnumArgumentType(Class<E> enumClass) {
         this.clazz = enumClass;
     }
 
@@ -33,8 +33,8 @@ public class EnumArgumentType<E extends Enum<E>> implements ArgumentType<E> {
         }
 
         try {
-            return (E) Enum.valueOf(clazz, param.toString().toUpperCase());
-        } catch (IllegalArgumentException e){
+            return Enum.valueOf(clazz, param.toString().toUpperCase());
+        } catch (IllegalArgumentException e) {
             throw new SimpleCommandExceptionType(new LiteralText("Invalid enum value!")).createWithContext(reader);
         }
     }

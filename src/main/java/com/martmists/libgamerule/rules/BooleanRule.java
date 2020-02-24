@@ -1,9 +1,9 @@
 package com.martmists.libgamerule.rules;
 
-import com.mojang.brigadier.arguments.BoolArgumentType;
-import com.mojang.brigadier.context.CommandContext;
 import com.martmists.libgamerule.Gamerule;
 import com.martmists.libgamerule.entities.ValueGetter;
+import com.mojang.brigadier.arguments.BoolArgumentType;
+import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.world.GameRules;
 

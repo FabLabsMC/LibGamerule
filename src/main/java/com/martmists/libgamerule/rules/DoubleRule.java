@@ -15,21 +15,21 @@ public class DoubleRule extends GameRules.Rule<DoubleRule> implements ValueGette
         this.value = value;
     }
 
-    public static GameRules.RuleType<DoubleRule> create(double defaultValue){
+    public static GameRules.RuleType<DoubleRule> create(double defaultValue) {
         return Gamerule.createRuleType(
                 DoubleArgumentType::doubleArg,
                 (GameRules.RuleType<DoubleRule> t) -> new DoubleRule(t, defaultValue)
         );
     }
 
-    public static GameRules.RuleType<DoubleRule> create(double defaultValue, double minValue){
+    public static GameRules.RuleType<DoubleRule> create(double defaultValue, double minValue) {
         return Gamerule.createRuleType(
                 () -> DoubleArgumentType.doubleArg(minValue),
                 (GameRules.RuleType<DoubleRule> t) -> new DoubleRule(t, defaultValue)
         );
     }
 
-    public static GameRules.RuleType<DoubleRule> create(double defaultValue, double minValue, double maxValue){
+    public static GameRules.RuleType<DoubleRule> create(double defaultValue, double minValue, double maxValue) {
         return Gamerule.createRuleType(
                 () -> DoubleArgumentType.doubleArg(minValue, maxValue),
                 (GameRules.RuleType<DoubleRule> t) -> new DoubleRule(t, defaultValue)

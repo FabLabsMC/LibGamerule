@@ -1,6 +1,5 @@
 package com.martmists.libgamerule.compat.libcd;
 
-import blue.endless.jankson.JsonElement;
 import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.JsonPrimitive;
 import com.martmists.libgamerule.Gamerule;
@@ -12,11 +11,8 @@ import io.github.cottonmc.libcd.api.CDSyntaxError;
 import io.github.cottonmc.libcd.api.LibCDInitializer;
 import io.github.cottonmc.libcd.api.condition.ConditionManager;
 import io.github.cottonmc.libcd.api.tweaker.TweakerManager;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.GameRules;
-
-import java.util.List;
 
 public class GameruleTweakerEP implements LibCDInitializer {
     public void initTweakers(TweakerManager p0) {
@@ -28,11 +24,11 @@ public class GameruleTweakerEP implements LibCDInitializer {
         conditionManager.registerCondition(new Identifier("libgamerule:gamerule_has_value"), (value) -> {
             if (value instanceof String) {
                 // assume booleanrule
-                return Gamerule.get(new GameRules.RuleKey<BooleanRule>((String)value));
+                return Gamerule.get(new GameRules.RuleKey<BooleanRule>((String) value));
             } else if (value instanceof JsonObject) {
-                JsonObject jo = (JsonObject)value;
-                String ruleName = ((JsonPrimitive)jo.get("name")).asString();
-                String ruleType = ((JsonPrimitive)jo.get("type")).asString();
+                JsonObject jo = (JsonObject) value;
+                String ruleName = ((JsonPrimitive) jo.get("name")).asString();
+                String ruleType = ((JsonPrimitive) jo.get("type")).asString();
                 switch (ruleType) {
                     case "string":
                         return Gamerule.get(new GameRules.RuleKey<StringRule>(ruleName)).equals(((JsonPrimitive) jo.get("value")).asString());
@@ -44,7 +40,7 @@ public class GameruleTweakerEP implements LibCDInitializer {
                     case "boolean":
                         return Gamerule.get(new GameRules.RuleKey<BooleanRule>(ruleName));
                     default:
-                        throw new CDSyntaxError("Invalid rule type: "+ruleType);
+                        throw new CDSyntaxError("Invalid rule type: " + ruleType);
                 }
             }
             return false;

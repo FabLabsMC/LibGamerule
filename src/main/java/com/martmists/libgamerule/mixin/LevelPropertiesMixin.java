@@ -12,9 +12,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LevelProperties.class)
 public class LevelPropertiesMixin {
-    @Shadow @Final private GameRules gameRules;
+    @Shadow
+    @Final
+    private GameRules gameRules;
 
-    @Inject(method="getGameRules", at=@At("HEAD"))
+    @Inject(method = "getGameRules", at = @At("HEAD"))
     void preUpdate(CallbackInfoReturnable<GameRules> cir) {
         // We refresh the gamerules in case any were added after the world was initialized.
         ((UpdateGameRules) gameRules).updateGamerules();

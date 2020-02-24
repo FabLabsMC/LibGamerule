@@ -17,21 +17,21 @@ public class IntRule extends GameRules.Rule<IntRule> implements ValueGetter<Inte
         this.value = value;
     }
 
-    public static GameRules.RuleType<IntRule> create(int defaultValue){
+    public static GameRules.RuleType<IntRule> create(int defaultValue) {
         return Gamerule.createRuleType(
                 IntegerArgumentType::integer,
                 (GameRules.RuleType<IntRule> t) -> new IntRule(t, defaultValue)
         );
     }
 
-    public static GameRules.RuleType<IntRule> create(int defaultValue, int minValue){
+    public static GameRules.RuleType<IntRule> create(int defaultValue, int minValue) {
         return Gamerule.createRuleType(
                 () -> IntegerArgumentType.integer(minValue),
                 (GameRules.RuleType<IntRule> t) -> new IntRule(t, defaultValue)
         );
     }
 
-    public static GameRules.RuleType<IntRule> create(int defaultValue, int minValue, int maxValue){
+    public static GameRules.RuleType<IntRule> create(int defaultValue, int minValue, int maxValue) {
         return Gamerule.createRuleType(
                 () -> IntegerArgumentType.integer(minValue, maxValue),
                 (GameRules.RuleType<IntRule> t) -> new IntRule(t, defaultValue)

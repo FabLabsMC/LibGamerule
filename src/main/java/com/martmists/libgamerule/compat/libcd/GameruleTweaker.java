@@ -8,7 +8,7 @@ import com.martmists.libgamerule.rules.StringRule;
 import net.minecraft.world.GameRules;
 
 public class GameruleTweaker {
-    public void addGamerule(String name, String type, Object defaultValue){
+    public void addGamerule(String name, String type, Object defaultValue) {
         try {
             GameRules.RuleType<?> t;
             switch (type) {

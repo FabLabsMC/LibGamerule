@@ -15,7 +15,7 @@ public class StringRule extends GameRules.Rule<StringRule> implements ValueGette
         this.value = value;
     }
 
-    public static GameRules.RuleType<StringRule> create(String defaultValue){
+    public static GameRules.RuleType<StringRule> create(String defaultValue) {
         return Gamerule.createRuleType(
                 StringArgumentType::greedyString,
                 (GameRules.RuleType<StringRule> t) -> new StringRule(t, defaultValue)
