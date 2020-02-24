@@ -1,7 +1,7 @@
 package com.martmists.libgamerule;
 
 import blue.endless.jankson.annotation.Nullable;
-import com.martmists.libgamerule.entities.ClientHook;
+import com.martmists.libgamerule.entities.ServerGetter;
 import com.martmists.libgamerule.entities.ValueGetter;
 import com.martmists.libgamerule.mixin.GameRulesAccessor;
 import com.martmists.libgamerule.mixin.RuleTypeAccessor;
@@ -28,7 +28,7 @@ public class Gamerule {
     public static <T extends GameRules.Rule<T> & ValueGetter<V>, V> V get(GameRules.RuleKey<T> key) {
         MinecraftServer server;
         if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
-            server = ClientHook.getClientServer();  // ((MinecraftClient)FabricLoader.getInstance().getGameInstance()).getServer()
+            server = ((ServerGetter) FabricLoader.getInstance().getGameInstance()).getServer();
         } else {
             server = (MinecraftServer) FabricLoader.getInstance().getGameInstance();
         }
