@@ -15,7 +15,10 @@
   "entrypoints": {
     "libcd": [
       "com.martmists.libgamerule.compat.libcd.GameruleTweakerEP"
-    ]
+    ],
+    "main": ["com.martmists.libgamerule.Gamerule"],
+    "client": ["com.martmists.libgamerule.GameruleClientMod"],
+    "server": ["com.martmists.libgamerule.GameruleServerMod"]
   },
   "mixins": [
     "lgr.mixins.json"

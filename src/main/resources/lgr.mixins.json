@@ -3,6 +3,7 @@
   "package": "com.martmists.libgamerule.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "GameRuleCommandAccessor",
     "RuleTypeAccessor",
     "GameRulesAccessor",
     "LevelPropertiesMixin",
