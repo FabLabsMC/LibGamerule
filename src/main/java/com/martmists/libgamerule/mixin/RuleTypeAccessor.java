@@ -13,8 +13,8 @@ import java.util.function.Supplier;
 
 @Mixin(GameRules.RuleType.class)
 public interface RuleTypeAccessor {
+    /** @noinspection PublicStaticMixinMember */
     @Invoker("<init>")
-    @SuppressWarnings("PublicStaticMixinMember")
     static <T extends GameRules.Rule<T>> GameRules.RuleType<T> invokeNew(Supplier<ArgumentType<?>> argumentType, Function<GameRules.RuleType<T>, T> factory, BiConsumer<MinecraftServer, T> notifier) {
         throw new AssertionError("This shouldn't happen!");
     }
