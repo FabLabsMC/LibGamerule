@@ -9,8 +9,7 @@ import net.minecraft.world.GameRules;
 
 public class IntRule extends GameRules.Rule<IntRule> implements ValueGetter<Integer> {
     // Not using GameRules.IntRule for flexibility in create()
-
-    int value;
+    private int value;
 
     public IntRule(GameRules.RuleType<IntRule> ruleType, int value) {
         super(ruleType);

@@ -8,7 +8,7 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.world.GameRules;
 
 public class StringRule extends GameRules.Rule<StringRule> implements ValueGetter<String> {
-    String value;
+    private String value;
 
     public StringRule(GameRules.RuleType<StringRule> ruleType, String value) {
         super(ruleType);

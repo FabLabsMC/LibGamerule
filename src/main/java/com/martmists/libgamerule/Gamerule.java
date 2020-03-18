@@ -22,10 +22,10 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class Gamerule implements ModInitializer {
-    public static Supplier<MinecraftServer> SERVER_SUPPLIER;
+    static Supplier<MinecraftServer> SERVER_SUPPLIER;
     public static boolean dirty = false;
-    public static CommandDispatcher<ServerCommandSource> DISPATCHER;
-    public static List<CommandNode<ServerCommandSource>> unregistered = new ArrayList<>();
+    private static CommandDispatcher<ServerCommandSource> DISPATCHER;
+    public static final List<CommandNode<ServerCommandSource>> unregistered = new ArrayList<>();
 
     public static <T extends GameRules.Rule<T>> GameRules.RuleKey<T> register(String name, GameRules.RuleType<T> type) {
         dirty = true;
@@ -51,8 +51,7 @@ public class Gamerule implements ModInitializer {
     }
 
     public static <T extends GameRules.Rule<T>> GameRules.RuleType<T> createRuleType(Supplier<ArgumentType<?>> argumentType, Function<GameRules.RuleType<T>, T> factory) {
-        return createRuleType(argumentType, factory, (s, r) -> {
-        });
+        return createRuleType(argumentType, factory, (s, r) -> {});
     }
 
     public static <T extends GameRules.Rule<T>> GameRules.RuleType<T> createRuleType(Supplier<ArgumentType<?>> argumentType, Function<GameRules.RuleType<T>, T> factory, BiConsumer<MinecraftServer, T> notifier) {
