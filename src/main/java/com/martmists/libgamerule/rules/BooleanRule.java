@@ -9,7 +9,7 @@ import net.minecraft.world.GameRules;
 
 public class BooleanRule extends GameRules.Rule<BooleanRule> implements ValueGetter<Boolean> {
     // Using this instead of GameRules.BooleanRule for ease of use
-    boolean value;
+    private boolean value;
 
     public BooleanRule(GameRules.RuleType<BooleanRule> ruleType, boolean value) {
         super(ruleType);

@@ -16,7 +16,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 public class EnumArgumentType<E extends Enum<E>> implements ArgumentType<E> {
-    Class<E> clazz;
+    private Class<E> clazz;
 
     public EnumArgumentType(Class<E> enumClass) {
         this.clazz = enumClass;

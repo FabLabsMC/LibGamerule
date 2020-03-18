@@ -8,8 +8,9 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.world.GameRules;
 
 public class EnumRule<E extends Enum<E>> extends GameRules.Rule<EnumRule<E>> implements ValueGetter<E> {
-    Class<E> clazz;
-    E value;
+    private Class<E> clazz;
+
+    private E value;
 
     public EnumRule(GameRules.RuleType<EnumRule<E>> ruleType, E value) {
         super(ruleType);

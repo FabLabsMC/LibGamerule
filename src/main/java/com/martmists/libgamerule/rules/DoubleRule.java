@@ -8,7 +8,7 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.world.GameRules;
 
 public class DoubleRule extends GameRules.Rule<DoubleRule> implements ValueGetter<Double> {
-    double value;
+    private double value;
 
     public DoubleRule(GameRules.RuleType<DoubleRule> ruleType, double value) {
         super(ruleType);
