@@ -1,11 +1,12 @@
-package com.martmists.libgamerule.api.rule;
+package io.github.fablabsmc.fablabs.api.gamerule.v1.rule;
 
 import com.mojang.brigadier.context.CommandContext;
+
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.world.GameRules;
 
 public abstract class LiteralRule<T extends GameRules.Rule<T>> extends GameRules.Rule<T> {
-	public LiteralRule(GameRules.RuleType<T> type) {
+	protected LiteralRule(GameRules.RuleType<T> type) {
 		super(type);
 	}
 

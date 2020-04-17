@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.martmists.libgamerule.mixin",
+  "package": "io.github.fablabsmc.fablabs.mixin.gamerule",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "GameRuleCommandAccessor",

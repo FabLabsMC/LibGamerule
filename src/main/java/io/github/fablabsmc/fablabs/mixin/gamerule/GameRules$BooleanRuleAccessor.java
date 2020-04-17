@@ -1,11 +1,12 @@
-package com.martmists.libgamerule.mixin;
+package io.github.fablabsmc.fablabs.mixin.gamerule;
 
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.GameRules;
+import java.util.function.BiConsumer;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-import java.util.function.BiConsumer;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.GameRules;
 
 @Mixin(GameRules.BooleanRule.class)
 public interface GameRules$BooleanRuleAccessor {

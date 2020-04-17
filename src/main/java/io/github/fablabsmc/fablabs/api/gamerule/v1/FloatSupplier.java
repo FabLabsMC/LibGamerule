@@ -1,4 +1,4 @@
-package com.martmists.libgamerule.api;
+package io.github.fablabsmc.fablabs.api.gamerule.v1;
 
 /**
  * Represents a supplier of {@code float}-valued results.  This is the

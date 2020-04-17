@@ -1,24 +1,24 @@
-package com.martmists.libgamerule.impl;
+package io.github.fablabsmc.fablabs.impl.gamerule;
 
-import com.martmists.libgamerule.api.RuleFactory;
-import com.martmists.libgamerule.api.rule.DoubleRule;
-import com.martmists.libgamerule.api.rule.EnumRule;
-import com.martmists.libgamerule.api.rule.FloatRule;
-import com.martmists.libgamerule.api.rule.StringRule;
-import com.martmists.libgamerule.api.rule.TextRule;
-import com.martmists.libgamerule.mixin.GameRules$BooleanRuleAccessor;
-import com.martmists.libgamerule.mixin.GameRules$IntRuleAccessor;
-import com.martmists.libgamerule.mixin.GameRules$RuleTypeAccessor;
+import java.util.function.BiConsumer;
+
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.RuleFactory;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.rule.DoubleRule;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.rule.EnumRule;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.rule.FloatRule;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.rule.StringRule;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.rule.TextRule;
+import io.github.fablabsmc.fablabs.mixin.gamerule.GameRules$BooleanRuleAccessor;
+import io.github.fablabsmc.fablabs.mixin.gamerule.GameRules$IntRuleAccessor;
+
 import net.minecraft.command.arguments.TextArgumentType;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.text.Text;
 import net.minecraft.world.GameRules;
-
-import java.util.function.BiConsumer;
 
 public class RuleFactoryImpl implements RuleFactory {
 	public static final RuleFactoryImpl INSTANCE = new RuleFactoryImpl();

@@ -1,11 +1,12 @@
-package com.martmists.libgamerule.api.rule;
+package io.github.fablabsmc.fablabs.api.gamerule.v1.rule;
 
-import com.martmists.libgamerule.api.RuleFactory;
-import net.minecraft.world.GameRules;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.function.Supplier;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.RuleFactory;
+
+import net.minecraft.world.GameRules;
 
 public class EnumRule<E extends Enum<E>> extends LiteralRule<EnumRule<E>> implements Supplier<E> {
 	private final Class<E> classType;
@@ -15,7 +16,6 @@ public class EnumRule<E extends Enum<E>> extends LiteralRule<EnumRule<E>> implem
 	// TODO: i509VCB - Should we make these constructors private since people are not supposed to be able to invoke these, and then use some invokers to create these internally within the api?
 
 	/**
-	 * @param type the rule type
 	 * @deprecated Please use {@link RuleFactory} instead.
 	 */
 	@Deprecated
@@ -29,6 +29,7 @@ public class EnumRule<E extends Enum<E>> extends LiteralRule<EnumRule<E>> implem
 	// TODO: This should not be public, maybe use mixin to hide it?
 	public void setValue(E value) throws IllegalArgumentException {
 		checkNotNull(value);
+
 		for (E supportedValue : this.supportedValues) {
 			if (supportedValue == value) {
 				this.value = value;

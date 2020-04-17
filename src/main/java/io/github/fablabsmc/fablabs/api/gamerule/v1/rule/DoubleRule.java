@@ -1,12 +1,13 @@
-package com.martmists.libgamerule.api.rule;
-
-import com.martmists.libgamerule.api.RuleFactory;
-import com.martmists.libgamerule.impl.GameRuleRegistryImpl;
-import com.mojang.brigadier.context.CommandContext;
-import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.world.GameRules;
+package io.github.fablabsmc.fablabs.api.gamerule.v1.rule;
 
 import java.util.function.DoubleSupplier;
+
+import com.mojang.brigadier.context.CommandContext;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.RuleFactory;
+import io.github.fablabsmc.fablabs.impl.gamerule.GameRuleRegistryImpl;
+
+import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.world.GameRules;
 
 public class DoubleRule extends GameRules.Rule<DoubleRule> implements DoubleSupplier {
 	private double value;
@@ -14,7 +15,6 @@ public class DoubleRule extends GameRules.Rule<DoubleRule> implements DoubleSupp
 	// TODO: i509VCB - Should we make these constructors private since people are not supposed to be able to invoke these, and then use some invokers to create these internally within the api?
 
 	/**
-	 * @param type the rule type
 	 * @deprecated Please use {@link RuleFactory} instead.
 	 */
 	@Deprecated

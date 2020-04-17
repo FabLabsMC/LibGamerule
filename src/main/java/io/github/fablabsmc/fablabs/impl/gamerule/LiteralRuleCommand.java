@@ -1,17 +1,18 @@
-package com.martmists.libgamerule.impl;
+package io.github.fablabsmc.fablabs.impl.gamerule;
 
-import com.martmists.libgamerule.api.rule.EnumRule;
-import com.martmists.libgamerule.mixin.GameRuleCommandAccessor;
+import static net.minecraft.server.command.CommandManager.literal;
+
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.rule.EnumRule;
+import io.github.fablabsmc.fablabs.mixin.gamerule.GameRuleCommandAccessor;
+
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.world.GameRules;
-
-import static net.minecraft.server.command.CommandManager.literal;
 
 public final class LiteralRuleCommand {
 	public static <E extends Enum<E>> int executeEnumSet(CommandContext<ServerCommandSource> context, String literal, GameRules.RuleKey<EnumRule<E>> key) throws CommandSyntaxException {
@@ -37,8 +38,8 @@ public final class LiteralRuleCommand {
 						.executes(context -> {
 							// We can use the vanilla query method
 							return GameRuleCommandAccessor.invokeExecuteQuery(context.getSource(), key);
-						})
-				);
+						}
+				));
 
 		type.register(literalArgumentBuilder, key);
 	}

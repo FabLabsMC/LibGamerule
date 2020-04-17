@@ -1,16 +1,17 @@
-package com.martmists.libgamerule.api;
+package io.github.fablabsmc.fablabs.api.gamerule.v1;
 
-import com.martmists.libgamerule.api.rule.DoubleRule;
-import com.martmists.libgamerule.api.rule.EnumRule;
-import com.martmists.libgamerule.api.rule.FloatRule;
-import com.martmists.libgamerule.api.rule.StringRule;
-import com.martmists.libgamerule.api.rule.TextRule;
-import com.martmists.libgamerule.impl.RuleFactoryImpl;
+import java.util.function.BiConsumer;
+
+import io.github.fablabsmc.fablabs.api.gamerule.v1.rule.DoubleRule;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.rule.EnumRule;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.rule.FloatRule;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.rule.StringRule;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.rule.TextRule;
+import io.github.fablabsmc.fablabs.impl.gamerule.RuleFactoryImpl;
+
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.text.Text;
 import net.minecraft.world.GameRules;
-
-import java.util.function.BiConsumer;
 
 public interface RuleFactory {
 	RuleFactory INSTANCE = RuleFactoryImpl.INSTANCE;

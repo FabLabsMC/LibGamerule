@@ -1,11 +1,12 @@
-package com.martmists.libgamerule.mixin;
+package io.github.fablabsmc.fablabs.mixin.gamerule;
 
 import com.mojang.brigadier.context.CommandContext;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.gen.Invoker;
+
 import net.minecraft.server.command.GameRuleCommand;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.world.GameRules;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(GameRuleCommand.class)
 public interface GameRuleCommandAccessor {

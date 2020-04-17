@@ -1,11 +1,12 @@
-package com.martmists.libgamerule.impl;
+package io.github.fablabsmc.fablabs.impl.gamerule;
 
-import com.martmists.libgamerule.api.GameRuleRegistry;
-import com.martmists.libgamerule.mixin.GameRulesAccessor;
-import net.minecraft.util.Identifier;
-import net.minecraft.world.GameRules;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.GameRuleRegistry;
+import io.github.fablabsmc.fablabs.mixin.gamerule.GameRulesAccessor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import net.minecraft.util.Identifier;
+import net.minecraft.world.GameRules;
 
 public class GameRuleRegistryImpl implements GameRuleRegistry {
 	public static final GameRuleRegistryImpl INSTANCE = new GameRuleRegistryImpl();

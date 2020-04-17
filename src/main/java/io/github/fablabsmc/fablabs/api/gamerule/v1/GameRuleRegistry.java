@@ -1,6 +1,7 @@
-package com.martmists.libgamerule.api;
+package io.github.fablabsmc.fablabs.api.gamerule.v1;
 
-import com.martmists.libgamerule.impl.GameRuleRegistryImpl;
+import io.github.fablabsmc.fablabs.impl.gamerule.GameRuleRegistryImpl;
+
 import net.minecraft.util.Identifier;
 import net.minecraft.world.GameRules;
 

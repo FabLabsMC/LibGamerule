@@ -1,42 +1,40 @@
-package com.martmists.libgamerule.api.rule;
-
-import com.martmists.libgamerule.api.RuleFactory;
-import com.mojang.brigadier.context.CommandContext;
-import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.text.Text;
-import net.minecraft.world.GameRules;
+package io.github.fablabsmc.fablabs.api.gamerule.v1.rule;
 
 import java.util.function.Supplier;
 
-public class TextRule extends GameRules.Rule<TextRule> implements Supplier<Text> {
-	private Text value;
+import com.mojang.brigadier.context.CommandContext;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.RuleFactory;
+
+import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.world.GameRules;
+
+public class StringRule extends GameRules.Rule<StringRule> implements Supplier<String> {
+	private String value;
 
 	// TODO: i509VCB - Should we make these constructors private since people are not supposed to be able to invoke these, and then use some invokers to create these internally within the api?
 
 	/**
-	 * @param type         the rule type
-	 * @param defaultValue
 	 * @deprecated Please use {@link RuleFactory} instead.
 	 */
 	@Deprecated
-	public TextRule(GameRules.RuleType<TextRule> type, Text defaultValue) {
+	public StringRule(GameRules.RuleType<StringRule> type, String value) {
 		super(type);
-		this.value = defaultValue;
+		this.value = value;
 	}
 
 	@Override
 	protected void setFromArgument(CommandContext<ServerCommandSource> context, String name) {
-		this.value = context.getArgument(name, Text.class);
+		this.value = context.getArgument(name, String.class);
 	}
 
 	@Override
 	protected void deserialize(String value) {
-		this.value = Text.Serializer.fromJson(value);
+		this.value = value;
 	}
 
 	@Override
 	protected String serialize() {
-		return Text.Serializer.toJson(this.value);
+		return this.value;
 	}
 
 	@Override
@@ -45,12 +43,12 @@ public class TextRule extends GameRules.Rule<TextRule> implements Supplier<Text>
 	}
 
 	@Override
-	protected TextRule getThis() {
+	protected StringRule getThis() {
 		return this;
 	}
 
 	@Override
-	public Text get() {
+	public String get() {
 		return this.value;
 	}
 }

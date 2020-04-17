@@ -1,16 +1,17 @@
-package com.martmists.libgamerule.impl;
+package io.github.fablabsmc.fablabs.impl.gamerule;
 
-import com.martmists.libgamerule.api.rule.EnumRule;
-import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.mojang.brigadier.tree.LiteralCommandNode;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.world.GameRules;
+import static net.minecraft.server.command.CommandManager.literal;
 
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-import static net.minecraft.server.command.CommandManager.literal;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import com.mojang.brigadier.tree.LiteralCommandNode;
+import io.github.fablabsmc.fablabs.api.gamerule.v1.rule.EnumRule;
+
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.world.GameRules;
 
 public class EnumRuleType<E extends Enum<E>> extends LiteralRuleType<EnumRule<E>> {
 	private final E[] supportedValues;

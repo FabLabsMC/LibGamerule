@@ -1,14 +1,13 @@
-package com.martmists.libgamerule.mixin;
-
-import com.mojang.brigadier.arguments.ArgumentType;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.GameRules;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Invoker;
+package io.github.fablabsmc.fablabs.mixin.gamerule;
 
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
+
+import com.mojang.brigadier.arguments.ArgumentType;
+
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.GameRules;
 
 // i509VCB -> fixme: AW conflicts during compile due to mixin AP and loom: https://github.com/FabricMC/fabric-loom/issues/193
 //@Mixin(GameRules.RuleType.class)
