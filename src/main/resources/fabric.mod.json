@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "${id}",
   "version": "${version}",
-
   "name": "FabLabs ${libname} version ${libver}",
   "icon": "assets/blueprint/icon.png",
   "description": "An API draft for GameRules",

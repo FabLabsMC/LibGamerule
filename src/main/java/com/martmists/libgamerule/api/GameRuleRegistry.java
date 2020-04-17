@@ -10,9 +10,9 @@ public interface GameRuleRegistry {
 	/**
 	 * Registers a {@link GameRules.Rule}.
 	 *
-	 * @param id the id this rule will be named
+	 * @param id   the id this rule will be named
 	 * @param type the rule type
-	 * @param <T> the type of rule
+	 * @param <T>  the type of rule
 	 * @return a rule key which can be used to query the value of the rule
 	 * @throws IllegalStateException if a rule of the same name already exists.
 	 */

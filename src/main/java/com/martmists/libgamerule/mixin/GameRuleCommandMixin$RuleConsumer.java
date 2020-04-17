@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(targets = "net/minecraft/server/command/GameRuleCommand$1")
-public abstract class GameRuleCommandMixin$RuleConsumer implements GameRules.RuleTypeConsumer {
+public abstract class GameRuleCommandMixin$RuleConsumer {
 	@Shadow
 	private LiteralArgumentBuilder<ServerCommandSource> field_19419;
 

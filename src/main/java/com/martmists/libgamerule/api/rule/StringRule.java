@@ -11,9 +11,10 @@ public class StringRule extends GameRules.Rule<StringRule> implements Supplier<S
 	private String value;
 
 	// TODO: i509VCB - Should we make these constructors private since people are not supposed to be able to invoke these, and then use some invokers to create these internally within the api?
+
 	/**
-	 * @deprecated Please use {@link RuleFactory} instead.
 	 * @param type the rule type
+	 * @deprecated Please use {@link RuleFactory} instead.
 	 */
 	@Deprecated
 	public StringRule(GameRules.RuleType<StringRule> type, String value) {

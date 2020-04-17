@@ -6,8 +6,8 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(GameRules.class)
 public interface GameRulesAccessor {
-    @Invoker
-    static <T extends GameRules.Rule<T>> GameRules.RuleKey<T> invokeRegister(String name, GameRules.RuleType<T> type) {
-        throw new AssertionError("This shouldn't happen!");
-    }
+	@Invoker
+	static <T extends GameRules.Rule<T>> GameRules.RuleKey<T> invokeRegister(String name, GameRules.RuleType<T> type) {
+		throw new AssertionError("This shouldn't happen!");
+	}
 }

@@ -8,7 +8,7 @@ import com.martmists.libgamerule.api.rule.StringRule;
 import com.martmists.libgamerule.api.rule.TextRule;
 import com.martmists.libgamerule.mixin.GameRules$BooleanRuleAccessor;
 import com.martmists.libgamerule.mixin.GameRules$IntRuleAccessor;
-import com.martmists.libgamerule.mixin.RuleTypeAccessor;
+import com.martmists.libgamerule.mixin.GameRules$RuleTypeAccessor;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
@@ -38,7 +38,9 @@ public class RuleFactoryImpl implements RuleFactory {
 
 	@Override
 	public GameRules.RuleType<GameRules.IntRule> createBoundedIntType(int defaultValue, int lowerBound, int upperBound, BiConsumer<MinecraftServer, GameRules.IntRule> notifier) {
-		return RuleTypeAccessor.invokeNew(
+		// fixme: use Invoker when issue is fixed: https://github.com/FabricMC/fabric-loom/issues/193
+		return new GameRules.RuleType<>(
+				//return GameRules$RuleTypeAccessor.invokeNew(
 				() -> IntegerArgumentType.integer(lowerBound, upperBound),
 				type -> new GameRules.IntRule(type, defaultValue),
 				notifier
@@ -47,7 +49,9 @@ public class RuleFactoryImpl implements RuleFactory {
 
 	@Override
 	public GameRules.RuleType<DoubleRule> createDoubleType(double defaultValue, BiConsumer<MinecraftServer, DoubleRule> notifier) {
-		return RuleTypeAccessor.invokeNew(
+		// fixme: use Invoker when issue is fixed: https://github.com/FabricMC/fabric-loom/issues/193
+		return new GameRules.RuleType<>(
+				//return GameRules$RuleTypeAccessor.invokeNew(
 				DoubleArgumentType::doubleArg,
 				type -> new DoubleRule(type, defaultValue),
 				notifier
@@ -56,7 +60,9 @@ public class RuleFactoryImpl implements RuleFactory {
 
 	@Override
 	public GameRules.RuleType<DoubleRule> createBoundedDoubleType(double defaultValue, double lowerBound, double upperBound, BiConsumer<MinecraftServer, DoubleRule> notifier) {
-		return RuleTypeAccessor.invokeNew(
+		// fixme: use Invoker when issue is fixed: https://github.com/FabricMC/fabric-loom/issues/193
+		return new GameRules.RuleType<>(
+				//return GameRules$RuleTypeAccessor.invokeNew(
 				() -> DoubleArgumentType.doubleArg(lowerBound, upperBound),
 				type -> new DoubleRule(type, defaultValue),
 				notifier
@@ -65,7 +71,9 @@ public class RuleFactoryImpl implements RuleFactory {
 
 	@Override
 	public GameRules.RuleType<FloatRule> createFloatType(float defaultValue, BiConsumer<MinecraftServer, FloatRule> notifier) {
-		return RuleTypeAccessor.invokeNew(
+		// fixme: use Invoker when issue is fixed: https://github.com/FabricMC/fabric-loom/issues/193
+		return new GameRules.RuleType<>(
+				//return GameRules$RuleTypeAccessor.invokeNew(
 				FloatArgumentType::floatArg,
 				type -> new FloatRule(type, defaultValue),
 				notifier
@@ -74,7 +82,9 @@ public class RuleFactoryImpl implements RuleFactory {
 
 	@Override
 	public GameRules.RuleType<FloatRule> createBoundedFloatType(float defaultValue, float lowerBound, float upperBound, BiConsumer<MinecraftServer, FloatRule> notifier) {
-		return RuleTypeAccessor.invokeNew(
+		// fixme: use Invoker when issue is fixed: https://github.com/FabricMC/fabric-loom/issues/193
+		return new GameRules.RuleType<>(
+				//return GameRules$RuleTypeAccessor.invokeNew(
 				() -> FloatArgumentType.floatArg(lowerBound, upperBound),
 				type -> new FloatRule(type, defaultValue),
 				notifier
@@ -83,7 +93,9 @@ public class RuleFactoryImpl implements RuleFactory {
 
 	@Override
 	public GameRules.RuleType<TextRule> createTextType(Text defaultValue, BiConsumer<MinecraftServer, TextRule> notifier) {
-		return RuleTypeAccessor.invokeNew(
+		// fixme: use Invoker when issue is fixed: https://github.com/FabricMC/fabric-loom/issues/193
+		return new GameRules.RuleType<>(
+				//return GameRules$RuleTypeAccessor.invokeNew(
 				TextArgumentType::text,
 				type -> new TextRule(type, defaultValue),
 				notifier
@@ -92,7 +104,9 @@ public class RuleFactoryImpl implements RuleFactory {
 
 	@Override
 	public GameRules.RuleType<StringRule> createWordType(String defaultValue, BiConsumer<MinecraftServer, StringRule> notifier) {
-		return RuleTypeAccessor.invokeNew(
+		// fixme: use Invoker when issue is fixed: https://github.com/FabricMC/fabric-loom/issues/193
+		return new GameRules.RuleType<>(
+				//return GameRules$RuleTypeAccessor.invokeNew(
 				StringArgumentType::word,
 				type -> new StringRule(type, defaultValue),
 				notifier
@@ -101,7 +115,9 @@ public class RuleFactoryImpl implements RuleFactory {
 
 	@Override
 	public GameRules.RuleType<StringRule> createStringType(String defaultValue, BiConsumer<MinecraftServer, StringRule> notifier) {
-		return RuleTypeAccessor.invokeNew(
+		// fixme: use Invoker when issue is fixed: https://github.com/FabricMC/fabric-loom/issues/193
+		return new GameRules.RuleType<>(
+				//return GameRules$RuleTypeAccessor.invokeNew(
 				StringArgumentType::string,
 				type -> new StringRule(type, defaultValue),
 				notifier

@@ -12,10 +12,11 @@ public class TextRule extends GameRules.Rule<TextRule> implements Supplier<Text>
 	private Text value;
 
 	// TODO: i509VCB - Should we make these constructors private since people are not supposed to be able to invoke these, and then use some invokers to create these internally within the api?
+
 	/**
-	 * @deprecated Please use {@link RuleFactory} instead.
-	 * @param type the rule type
+	 * @param type         the rule type
 	 * @param defaultValue
+	 * @deprecated Please use {@link RuleFactory} instead.
 	 */
 	@Deprecated
 	public TextRule(GameRules.RuleType<TextRule> type, Text defaultValue) {

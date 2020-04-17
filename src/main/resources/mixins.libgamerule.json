@@ -7,8 +7,7 @@
     "GameRuleCommandMixin$RuleConsumer",
     "GameRules$BooleanRuleAccessor",
     "GameRules$IntRuleAccessor",
-    "GameRulesAccessor",
-    "RuleTypeAccessor"
+    "GameRulesAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

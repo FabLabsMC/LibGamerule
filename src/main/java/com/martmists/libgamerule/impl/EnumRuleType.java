@@ -27,8 +27,8 @@ public class EnumRuleType<E extends Enum<E>> extends LiteralRuleType<EnumRule<E>
 		for (E supportedValue : this.supportedValues) {
 			ruleNode.addChild(
 					literal(supportedValue.toString())
-					.executes(context -> LiteralRuleCommand.executeEnumSet(context, supportedValue.toString(), key))
-					.build()
+							.executes(context -> LiteralRuleCommand.executeEnumSet(context, supportedValue.toString(), key))
+							.build()
 			);
 		}
 

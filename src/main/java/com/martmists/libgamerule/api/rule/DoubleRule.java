@@ -12,9 +12,10 @@ public class DoubleRule extends GameRules.Rule<DoubleRule> implements DoubleSupp
 	private double value;
 
 	// TODO: i509VCB - Should we make these constructors private since people are not supposed to be able to invoke these, and then use some invokers to create these internally within the api?
+
 	/**
-	 * @deprecated Please use {@link RuleFactory} instead.
 	 * @param type the rule type
+	 * @deprecated Please use {@link RuleFactory} instead.
 	 */
 	@Deprecated
 	public DoubleRule(GameRules.RuleType<DoubleRule> type, double value) {
