@@ -4,10 +4,11 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "GameRuleCommandAccessor",
-    "RuleTypeAccessor",
+    "GameRuleCommandMixin$RuleConsumer",
+    "GameRules$BooleanRuleAccessor",
+    "GameRules$IntRuleAccessor",
     "GameRulesAccessor",
-    "LevelPropertiesMixin",
-    "GameRulesMixin"
+    "RuleTypeAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

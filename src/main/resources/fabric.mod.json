@@ -1,35 +1,26 @@
 {
   "schemaVersion": 1,
-  "id": "libgamerule",
+  "id": "${id}",
   "version": "${version}",
-  "name": "LibGamerule",
-  "description": "A library for creating and using gamerules",
-  "authors": [
-    "Martmists"
-  ],
-  "contact": {
-    "sources": "https://dilaton.martmists.com/martmists/libgamerule"
-  },
+
+  "name": "FabLabs ${libname} version ${libver}",
+  "icon": "assets/blueprint/icon.png",
+  "description": "An API draft for GameRules",
   "license": "MIT",
-  "icon": "assets/lgr/icon.png",
-  "entrypoints": {
-    "libcd": [
-      "com.martmists.libgamerule.compat.libcd.GameruleTweakerEP"
-    ],
-    "main": ["com.martmists.libgamerule.Gamerule"],
-    "client": ["com.martmists.libgamerule.GameruleClientMod"],
-    "server": ["com.martmists.libgamerule.GameruleServerMod"]
+  "contact": {
+    "sources": "https://github.com/${repo}"
   },
+  "environment": "*",
+  "entrypoints": {
+  },
+  "accessWidener": "libgamerule.accesswidener",
   "mixins": [
-    "lgr.mixins.json"
+    "mixins.${libname}.json"
   ],
+  "depends": {
+    "fabricloader": ">=0.8.0"
+  },
   "custom": {
     "modmenu:api": true
-  },
-  "depends": {
-    "fabricloader": ">=0.4.0"
-  },
-  "suggests": {
-    "libcd": "*"
   }
 }
