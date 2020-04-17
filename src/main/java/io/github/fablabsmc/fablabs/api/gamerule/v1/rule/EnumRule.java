@@ -5,6 +5,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.util.function.Supplier;
 
 import io.github.fablabsmc.fablabs.api.gamerule.v1.RuleFactory;
+import io.github.fablabsmc.fablabs.impl.gamerule.GameRuleRegistryImpl;
 
 import net.minecraft.world.GameRules;
 
@@ -14,7 +15,6 @@ public class EnumRule<E extends Enum<E>> extends LiteralRule<EnumRule<E>> implem
 	private E value;
 
 	// TODO: i509VCB - Should we make these constructors private since people are not supposed to be able to invoke these, and then use some invokers to create these internally within the api?
-
 	/**
 	 * @deprecated Please use {@link RuleFactory} instead.
 	 */
@@ -31,9 +31,9 @@ public class EnumRule<E extends Enum<E>> extends LiteralRule<EnumRule<E>> implem
 		checkNotNull(value);
 
 		for (E supportedValue : this.supportedValues) {
-			if (supportedValue == value) {
+			if (supportedValue.equals(value)) {
 				this.value = value;
-				break;
+				return;
 			}
 		}
 
@@ -42,12 +42,36 @@ public class EnumRule<E extends Enum<E>> extends LiteralRule<EnumRule<E>> implem
 
 	@Override
 	protected void deserialize(String value) {
-		this.value = E.valueOf(this.classType, value);
+		int ordinal = parseInt(value);
+		E[] possibleValues = this.classType.getEnumConstants();
+
+		if (possibleValues.length <= ordinal + 1) { // Our ordinal doesn't exist, log the issue
+			GameRuleRegistryImpl.LOGGER.warn("Failed to parse int {} for rule of type {}. Since it's ordinal is not present", ordinal, this.classType);
+			return;
+		}
+
+		try {
+			this.setValue(possibleValues[ordinal]);
+		} catch (IllegalArgumentException e) { // Not a supported value
+			GameRuleRegistryImpl.LOGGER.warn("Failed to parse int {} for rule of type {}. {}", ordinal, this.classType, e);
+		}
+	}
+
+	private int parseInt(String string) {
+		if (!string.isEmpty()) {
+			try {
+				return Integer.parseInt(string);
+			} catch (NumberFormatException e) {
+				GameRuleRegistryImpl.LOGGER.warn("Failed to parse int {} for rule of type {}", string, this.classType);
+			}
+		}
+
+		return 0;
 	}
 
 	@Override
 	protected String serialize() {
-		return this.value.toString();
+		return Integer.toString(this.value.ordinal());
 	}
 
 	@Override
@@ -62,6 +86,11 @@ public class EnumRule<E extends Enum<E>> extends LiteralRule<EnumRule<E>> implem
 
 	public Class<E> getEnumClass() {
 		return this.classType;
+	}
+
+	@Override
+	public String toString() {
+		return this.value.toString();
 	}
 
 	@Override

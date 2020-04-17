@@ -126,6 +126,10 @@ public class RuleFactoryImpl implements RuleFactory {
 
 	@Override
 	public <E extends Enum<E>> GameRules.RuleType<EnumRule<E>> createEnumRule(E defaultValue, E[] supportedValues, BiConsumer<MinecraftServer, EnumRule<E>> notifier) {
+		if (supportedValues.length == 0) {
+			throw new IllegalArgumentException("Cannot register an enum rule where no values are supported");
+		}
+
 		return new EnumRuleType<>(
 				type -> new EnumRule<>(type, defaultValue, supportedValues),
 				notifier,

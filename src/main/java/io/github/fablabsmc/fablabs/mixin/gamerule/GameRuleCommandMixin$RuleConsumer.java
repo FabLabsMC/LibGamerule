@@ -22,7 +22,8 @@ public abstract class GameRuleCommandMixin$RuleConsumer {
 	private <T extends GameRules.Rule<T>> void lgb_onRegisterCommand(GameRules.RuleKey<T> key, GameRules.RuleType<T> type, CallbackInfo ci) {
 		// Check if our type is a LiteralRuleType
 		if (type instanceof LiteralRuleType) {
-			LiteralRuleCommand.register(this.field_19419, key, (LiteralRuleType<T>) type);
+			//noinspection rawtypes,unchecked
+			LiteralRuleCommand.register(this.field_19419, (GameRules.RuleKey) key, (LiteralRuleType) type);
 			ci.cancel();
 		}
 	}

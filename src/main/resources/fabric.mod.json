@@ -11,6 +11,9 @@
   },
   "environment": "*",
   "entrypoints": {
+    "main": [
+      "io.github.fablabsmc.fablabs.impl.gamerule.test.GameRuleTest"
+    ]
   },
   "accessWidener": "libgamerule.accesswidener",
   "mixins": [
