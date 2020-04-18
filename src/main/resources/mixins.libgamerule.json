@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "io.github.fablabsmc.fablabs.mixin.gamerule",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "GameRuleCommandAccessor",
+    "GameRuleCommandMixin$RuleConsumer",
+    "GameRules$BooleanRuleAccessor",
+    "GameRules$IntRuleAccessor",
+    "GameRulesAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

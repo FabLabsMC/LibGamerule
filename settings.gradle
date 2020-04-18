@@ -1,4 +1,10 @@
-include "versions:1.15.2"
-include "versions:1.16"
-
-rootProject.name = 'libgamerule'
+pluginManagement {
+    repositories {
+        jcenter()
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+        gradlePluginPortal()
+    }
+}
